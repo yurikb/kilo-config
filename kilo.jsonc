@@ -1,0 +1,124 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "permission": {
+    "caveman": "allow",
+    "caveman-commit": "allow",
+    "caveman-review": "allow",
+    "caveman-help": "allow",
+    "caveman-compress": "allow",
+    "read": { "*": "allow" },
+    "edit": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "bash": {
+      "*": "allow",
+      "python -c *": "allow",
+      " *": "allow",
+      "print *": "allow",
+      "f *": "allow",
+      "model *": "allow",
+      "e.code *": "allow",
+      "err *": "allow",
+      "python C:\\Users\\yurik\\AppData\\Local\\Temp\\kilo\\test_or_vision.py *": "allow",
+      "Get-ChildItem *": "allow",
+      "Sort-Object *": "allow",
+      "Select-Object *": "allow",
+      "Remove-Item *": "allow",
+      "Get-Content *": "allow",
+      "git add *": "allow",
+      "node *": "allow"
+    },
+    "task": "allow",
+    "external_directory": "allow",
+    "todowrite": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "lsp": "allow",
+    "doom_loop": "allow",
+    "skill": "allow",
+    "todoread": "allow",
+    "codesearch": "allow",
+    "langfuse_listProjects": { "*": "allow" },
+    "langfuse_listTraces": { "*": "allow" },
+    "langfuse_listDatasets": { "*": "allow" },
+    "langfuse_listDatasetItems": { "*": "allow" },
+    "langfuse_listPrompts": { "*": "allow" },
+    "langfuse_getPrompt": { "*": "allow" },
+    "langfuse_getTrace": { "*": "allow" },
+    "langfuse_listDatasetRuns": { "*": "allow" }
+  },
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "tail_turns": 15,
+    "preserve_recent_tokens": 40000,
+    "reserved": 16384
+  },
+  "snapshot": true,
+  "model": "kilo/kilo-auto/free",
+  "small_model": "kilo/kilo-auto/free",
+  "provider": {
+    "google": {
+      "options": {
+        "apiKey": "{env:GEMINI_API_KEY}"
+      },
+      "models": {
+        "gemini-3.5-flash": {
+          "id": "gemini-3.5-flash",
+          "name": "Gemini 3.5 Flash"
+        },
+        "gemini-3.1-flash-lite": {
+          "id": "gemini-3.1-flash-lite",
+          "name": "Gemini 3.1 Flash Lite"
+        }
+      }
+    }
+  },
+  "instructions": ["AGENTS.md", "CLAUDE.md"],
+  "mcp": {
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"]
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp@latest"]
+    },
+    "vercel": {
+      "type": "remote",
+      "url": "https://mcp.vercel.com"
+    },
+    "tasks-geral": {
+      "type": "local",
+      "command": ["node", "C:/Users/yurik/code/tasks-geral-mcp/server.js"]
+    },
+    "langfuse": {
+      "type": "local",
+      "command": ["npx", "-y", "langfuse-mcp"],
+      "environment": {
+        "LANGFUSE_PUBLIC_KEY": "{env:LANGFUSE_PUBLIC_KEY}",
+        "LANGFUSE_SECRET_KEY": "{env:LANGFUSE_SECRET_KEY}",
+        "LANGFUSE_BASE_URL": "{env:LANGFUSE_BASE_URL}"
+      }
+    },
+    "langsmith-mcp": {
+      "type": "local",
+      "command": ["npx", "-y", "langsmith-mcp-server@0.1.7"],
+      "environment": {
+        "LANGSMITH_API_KEY": "{env:LANGSMITH_API_KEY}"
+      }
+    }
+  },
+  "lsp": true,
+  "watcher": {
+    "ignore": ["**/node_modules/**"]
+  },
+  "experimental": {
+    "batch_tool": true,
+    "openTelemetry": false,
+  },
+  "permission": {
+    "bash": "allow"
+  },
+}

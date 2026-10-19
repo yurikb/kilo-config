@@ -1,0 +1,18 @@
+# Kilo CLI Global Config
+# See: https://kilo.ai/docs/config
+
+node_modules/
+package-lock.json
+package.json
+.yksecrets/
+.env
+
+# Planning state
+.planning/STATE.md
+.planning/graphs/
+
+# Logs
+*.log
+
+# Temp
+*.tmp
